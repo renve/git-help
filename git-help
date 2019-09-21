@@ -76,7 +76,9 @@ EXPLANATION:
 	# remember that you will be working on the same branch as someone else and may cause merge conflicts 
 
 COMMANDS:
-	Branch already created- git fetch -p, git checkout -b branch origin/branch, git pull, make changes, git add ., git commit -m "message", git push -u origin branch
+	Branch already created- 
+	git fetch -p, git checkout -b branch origin/branch, git pull, make changes, 
+	git add ., git commit -m "message", git push -u origin branch
 
 EXPLANATION:
 	# if you have to create a branch for your task follow below procedure, providing your branch name after the -b 
@@ -89,7 +91,9 @@ EXPLANATION:
 	# When you checkout, create a branch that matches their named branch
 
 COMMANDS:
-	Checkout a team members branch and create your own based off theirs- git fetch -p, git checkout -b branch origin/branch, git pull, git checkout -b newbranch, make changes, git add ., git commit -m "message", git push -u origin newbranch 
+	Checkout a team members branch and create your own based off theirs- 
+	git fetch -p, git checkout -b branch origin/branch, git pull, git checkout -b newbranch, make changes, 
+	git add ., git commit -m "message", git push -u origin newbranch 
 
 ######################################################################################################################
 
