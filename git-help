@@ -1,0 +1,77 @@
+## BRANCHES ##
+
+git fetch -p # pulls only current branches by pruning the ones you have locally
+
+git checkout -b branch origin/branch #checks out remote and creates local branch
+
+git branch -d or -D branch # delete local branch -D forces deletion of unmerged branch
+git push origin -d branch # deletes remote branch named branch
+git branch -dr origin/branch # deletes the local remote-tracking branch -r=remote
+
+## COMMIT ##
+
+git commit -m "message"
+git commit --amend # amends last commit message
+
+## PUSH ##
+
+git push -u origin branch #first push will sync with a remote branch ie. set upstream 
+git push # after setting upstream you only need this and it will push to remote branch
+
+# Merge
+# Switch to branch you want to merge with another
+
+git checkout -b branch origin/branch # creates a local branch and tracks remote branch if you are not tracking it
+git checkout branch # if you are already tracking the branch just check it out
+git merge test # will merge with the changes made in test branch
+ 
+## TAGS ##
+
+git tag -a v1.1 -m "release 1.1"
+git show v1.1 # shows info for tag
+git checkout v1.1 
+
+# Rebase, used when there are updates to master that you want to intake
+#DO NOT REBASE ON A SHARED BRANCH
+
+# create and checkout a branch
+# create commits on your branch
+git rebase master # pulls in changes from master
+
+## DIFF ##
+
+git diff
+git diff HEAD # prints difference of your current chnages vs latest commit can add /path/file at the end as well
+git diff <hash-value>
+git diff master
+git diff <branch-name> <branch-name>
+
+## RESET ##
+
+git reset --hard <hash> # puts you on a specific commit and deletes your current changes
+ 
+## WORKFLOW ##
+
+git clone https://url
+
+# git fetch -p will prune your branches and show the remote branches available (origin/branch), 
+# create a local branch with the same name as the remote, omitting the "origin" part
+# make desired changes and push using -u flag to sync local branch to remote branch and only needed the first time you push
+# remember that you will be working on the same branch as someone else and may cause merge conflicts 
+Branch already created- git fetch -p, git checkout -b branch origin/branch, git pull, make changes, git add ., git commit -m "message", git push -u origin branch
+
+# if you have to create a branch for your task follow below procedure, providing your branch name after the -b 
+Branch not created- git checkout -b branch, make changes, git add ., git commit -m "message", git push -u origin branch
+
+# Someone has already done work on their branch and you want to continue but you want your own branch. 
+# When you checkout, create a branch that matches their named branch
+Checkout a team members branch and create your own based off theirs- git fetch -p, git checkout -b branch origin/branch, git pull, git checkout -b newbranch, make changes, git add ., git commit -m "message", git push -u origin newbranch 
+
+After pushing changes, create a pull request and notify team members 
+
+Delete branches that are no longer needed locally and remote using above commands 
+
+# This is something that makes things easier for me when working with git
+# add the lines below to your .bash_profile on mac then (source .bash_profile)
+# alias gitlog='git log --all --decorate --oneline --graph' 
+# alias git-help='cat /Users/username/git/git-help' # put this file in a path and create an alias git-help and call it to help in git 
